@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainbow Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="game-stage" aria-label="Tic tac toe game">
+      <div class="brand-strip" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <header class="top-bar">
+        <div>
+          <p class="eyebrow">Family game table</p>
+          <h1>Rainbow Tic Tac Toe</h1>
+        </div>
+        <button class="icon-button" id="soundToggle" type="button" aria-pressed="true" aria-label="Sound on" title="Sound">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+            <path class="sound-wave" d="M16 8.5c1.3 1.9 1.3 5.1 0 7"></path>
+            <path class="sound-wave" d="M18.8 6c2.3 3.3 2.3 8.7 0 12"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="layout">
+        <aside class="control-panel" aria-label="Game controls">
+          <div class="mode-row" role="group" aria-label="Game mode">
+            <button class="segmented active" type="button" data-mode="duo">2 Players</button>
+            <button class="segmented" type="button" data-mode="bot">Computer</button>
+          </div>
+
+          <div class="name-grid">
+            <label class="player-field x-player">
+              <span>X name</span>
+              <input id="playerX" maxlength="12" value="Player X" autocomplete="off">
+            </label>
+            <label class="player-field o-player">
+              <span>O name</span>
+              <input id="playerO" maxlength="12" value="Player O" autocomplete="off">
+            </label>
+          </div>
+
+          <div class="difficulty-wrap" id="difficultyWrap">
+            <span class="field-label">Computer</span>
+            <div class="mode-row compact" role="group" aria-label="Computer strength">
+              <button class="segmented active" type="button" data-difficulty="easy">Cheerful</button>
+              <button class="segmented" type="button" data-difficulty="smart">Clever</button>
+            </div>
+          </div>
+
+          <div class="theme-picker" aria-label="Color theme">
+            <span class="field-label">Colors</span>
+            <button class="swatch active" type="button" data-theme="rainbow" aria-label="Rainbow theme" title="Rainbow">
+              <span class="rainbow-swatch"></span>
+            </button>
+            <button class="swatch" type="button" data-theme="citrus" aria-label="Citrus theme" title="Citrus">
+              <span class="citrus-swatch"></span>
+            </button>
+            <button class="swatch" type="button" data-theme="space" aria-label="Space theme" title="Space">
+              <span class="space-swatch"></span>
+            </button>
+          </div>
+
+          <div class="score-board" aria-label="Score">
+            <div class="score-pill x-score">
+              <span id="xScore">0</span>
+              <strong>X wins</strong>
+            </div>
+            <div class="score-pill draw-score">
+              <span id="drawScore">0</span>
+              <strong>Draws</strong>
+            </div>
+            <div class="score-pill o-score">
+              <span id="oScore">0</span>
+              <strong>O wins</strong>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="primary-action" id="newRound" type="button">New Round</button>
+            <button class="secondary-action" id="resetScores" type="button">Reset Scores</button>
+          </div>
+        </aside>
+
+        <section class="board-wrap" aria-live="polite">
+          <div class="turn-banner" id="statusText">Player X starts</div>
+          <div class="board-shell">
+            <div class="win-line" id="winLine" aria-hidden="true"></div>
+            <div class="board" id="board" role="grid" aria-label="Tic tac toe board">
+              <button class="cell" type="button" role="gridcell" aria-label="Top left square" data-index="0"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Top center square" data-index="1"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Top right square" data-index="2"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Middle left square" data-index="3"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Middle center square" data-index="4"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Middle right square" data-index="5"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Bottom left square" data-index="6"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Bottom center square" data-index="7"></button>
+              <button class="cell" type="button" role="gridcell" aria-label="Bottom right square" data-index="8"></button>
+            </div>
+          </div>
+          <div class="mini-celebration" id="celebration" aria-hidden="true"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
